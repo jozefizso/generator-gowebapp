@@ -1,0 +1,47 @@
+{
+  "name": "generator-gowebapp",
+  "version": "0.1.0",
+  "description": "Yeoman generator for scaffolding out a front-end web app.",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jozefizso/generator-gowebapp.git"
+  },
+  "author": {
+    "name": "Jozef Izso",
+    "email": "jozef.izso@gmail.com",
+    "url": "https://github.com/jozefizso"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator",
+    "web",
+    "app",
+    "front-end",
+    "h5bp",
+    "modernizr",
+    "html5",
+    "bootstrap",
+    "jquery",
+    "grunt"
+  ],
+  "dependencies": {
+    "yeoman-generator": "~0.16.0",
+    "chalk": "~0.4.0"
+  },
+  "devDependencies": {
+    "mocha": "~1.17.0"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
+  }
+}
