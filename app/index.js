@@ -19,21 +19,30 @@ var GowebappGenerator = yeoman.generators.Base.extend({
   askFor: function () {
     var done = this.async();
 
-    // have Yeoman greet the user
-    console.log(this.yeoman);
+    // welcome message
+    if (!this.options['skip-welcome-message']) {
+      console.log(this.yeoman);
+      console.log(chalk.magenta('Out of the box I include HTML5 Boilerplate, jQuery, and a Gruntfile.js to build your app.'));
+    }
 
-    // replace it with a short and sweet description of your generator
-    console.log(chalk.magenta('You\'re using the fantastic Gowebapp generator.'));
+    var prompts = [];
+    // {
+    //   type: 'checkbox',
+    //   name: 'features',
+    //   message: 'What more would you like?',
+    //   choices: [{
+    //     name: 'Bootstrap',
+    //     value: 'includeBootstrap',
+    //     checked: true
+    //   }, {
+    //     name: 'Modernizr',
+    //     value: 'includeModernizr',
+    //     checked: true
+    //   }]
+    // }];
 
-    var prompts = [{
-      type: 'confirm',
-      name: 'someOption',
-      message: 'Would you like to enable this option?',
-      default: true
-    }];
-
-    this.prompt(prompts, function (props) {
-      this.someOption = props.someOption;
+    this.prompt(prompts, function (answers) {
+      // var features = answers.features;
 
       done();
     }.bind(this));
@@ -41,16 +50,57 @@ var GowebappGenerator = yeoman.generators.Base.extend({
 
   app: function () {
     this.mkdir('app');
-    this.mkdir('app/templates');
+    this.mkdir('app/js');
+    this.mkdir('app/css');
+    this.mkdir('app/img');
+  },
 
-    this.copy('_package.json', 'package.json');
+  readme: function () {
+    this.template('_README.md', 'README.md');
+  },
+
+  gruntfile: function () {
+    this.template('Gruntfile.js');
+  },
+
+  packageJSON: function () {
+    this.template('_package.json', 'package.json');
+  },
+
+  git: function () {
+    this.copy('gitignore', '.gitignore');
+    this.copy('gitattributes', '.gitattributes');
+  },
+
+  bower: function () {
+    this.copy('bowerrc', '.bowerrc');
     this.copy('_bower.json', 'bower.json');
   },
 
-  projectfiles: function () {
-    this.copy('editorconfig', '.editorconfig');
+  jshint: function () {
     this.copy('jshintrc', '.jshintrc');
-  }
+    this.copy('app/jshintrc', 'app/js/.jshintrc');
+  },
+
+  editorConfig: function () {
+    this.copy('editorconfig', '.editorconfig');
+  },
+
+  h5bp: function () {
+    this.copy('app/favicon.ico', 'app/favicon.ico');
+    this.copy('app/404.html', 'app/404.html');
+    this.copy('app/index.html', 'app/index.html');
+    this.copy('app/robots.txt', 'app/robots.txt');
+    this.copy('app/htaccess', 'app/.htaccess');
+  },
+
+  mainStylesheet: function () {
+    this.copy('app/site.less', 'app/css/site.less');
+  },
+
+  mainJavaScript: function () {
+    this.copy('app/main.js', 'app/js/main.js');
+  },
 });
 
 module.exports = GowebappGenerator;

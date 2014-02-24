@@ -1,10 +1,11 @@
 /*global describe, beforeEach, it*/
 'use strict';
-var assert = require('assert');
+var assert = require('chai').assert;
 
-describe('gowebapp generator', function () {
+describe('gowebapp generator test', function () {
   it('can be imported without blowing up', function () {
     var app = require('../app');
-    assert(app !== undefined);
+
+    assert.isDefined(app, 'gowebapp generator was not required successfully');
   });
 });
