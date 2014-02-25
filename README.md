@@ -1,6 +1,7 @@
 # Web application generator
 
  [![Build Status](https://secure.travis-ci.org/jozefizso/generator-gowebapp.png?branch=master)](https://travis-ci.org/jozefizso/generator-gowebapp)
+ [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 [Yeoman](http://yeoman.io) generator that scaffolds out a front-end web app. Inspired by the [generator-webapp](https://github.com/yeoman/generator-webapp) and [generator-assemble](https://github.com/assemble/generator-assemble).
 
