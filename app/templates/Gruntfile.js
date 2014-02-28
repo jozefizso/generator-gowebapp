@@ -13,6 +13,7 @@ module.exports = function (grunt) {
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
+  var errorDocument = require('connect-error-document');
 
   // Define the configuration for all the tasks
   grunt.initConfig({
@@ -64,7 +65,11 @@ module.exports = function (grunt) {
         port: 9000,
         livereload: '<%%= yeoman.livereload.port %>',
         // change this to '0.0.0.0' to access the server from outside
-        hostname: 'localhost'
+        hostname: 'localhost',
+        middleware: function (connect, options, middlewares) {
+          middlewares.push(errorDocument(options.base[1]));
+          return middlewares;
+        }
       },
       livereload: {
         options: {
