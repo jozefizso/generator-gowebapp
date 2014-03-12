@@ -64,8 +64,9 @@ module.exports = function (grunt) {
       options: {
         port: 9000,
         livereload: '<%%= yeoman.livereload.port %>',
-        // change this to '0.0.0.0' to access the server from outside
-        hostname: 'localhost',
+        // set hostname to 'localhost' to allow access only from your machine, or
+        // use '0.0.0.0' to access the server from outside
+        hostname: '0.0.0.0',
         middleware: function (connect, options, middlewares) {
           middlewares.push(errorDocument(options.base[1]));
           return middlewares;
