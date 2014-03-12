@@ -290,8 +290,7 @@ module.exports = function (grunt) {
       dist: [
         'recess:dev',
         'copy:styles',
-        'imagemin',
-        'htmlmin'
+        'imagemin'
       ]
     }
   });
