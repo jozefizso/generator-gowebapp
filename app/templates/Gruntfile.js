@@ -220,16 +220,18 @@ module.exports = function (grunt) {
         options: {
           collapseBooleanAttributes: true,
           collapseWhitespace: true,
-          removeAttributeQuotes: true,
+          removeAttributeQuotes: false,
+          removeComments: true,
           removeCommentsFromCDATA: true,
           removeEmptyAttributes: true,
-          removeOptionalTags: true,
+          removeOptionalTags: false,
+          removeEmptyElements: false,
           removeRedundantAttributes: true,
           useShortDoctype: true
         },
         files: [{
           expand: true,
-          cwd: '<%%= yeoman.app %>',
+          cwd: '<%%= yeoman.dist %>',
           src: '{,*/}*.html',
           dest: '<%%= yeoman.dist %>'
         }]
