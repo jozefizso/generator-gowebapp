@@ -195,7 +195,10 @@ module.exports = function (grunt) {
     usemin: {
       // rewrites HTML and CSS files with references to minified files
       options: {
-        assetsDirs: ['<%%= yeoman.dist %>']
+        assetsDirs: [
+          '<%%= yeoman.dist %>',
+          '<%%= yeoman.dist %>/img'
+        ]
       },
       html: ['<%%= yeoman.dist %>/{,*/}*.html'],
       css: ['<%%= yeoman.dist %>/css/{,*/}*.css']
